@@ -1,0 +1,7 @@
+body {
+  background-color: rgb(48, 48, 54);
+  font-family: 'Georama', sans-serif;
+  font-size: 2em;
+  /* added padding to prevent navbar overlap. (100 based on browser inpector of size) */
+  padding-top: 90px;
+}
