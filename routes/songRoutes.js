@@ -14,7 +14,7 @@ router.post('/songs', (req, res) => {
 router.put('/songs/:title:text', (req, res) => {
   const title = req.params.title
   const newText = req.params.text
-  songs.forEach(item => {
+  songs.forEach(song => {
     if (song.title === title) {
       song.text = nextText
     }
