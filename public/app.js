@@ -15,10 +15,11 @@ document.getElementById('addSong').addEventListener('click', event => {
       console.log(song)
       let songElem = document.createElement('div')
       songElem.innerHTML = `
-      <p>${song.title}</p>
-      <p>${song.artist}</p>
-      <p>${song.album}</p>
-      <p>${song.text}</p>
+        <p data-title="${song.title}">${song.title}</p>
+        <p>${song.artist}</p>
+        <p>${song.album}</p>
+        <p>${song.text}</p>
+        <button class="delete">Delete</button>
       <hr>
       `
       document.getElementById('songList').append(songElem)
@@ -31,14 +32,14 @@ document.getElementById('addSong').addEventListener('click', event => {
     .catch(err => console.error(err))
 })
 
-// document.addEventListener('click', event => {
-//   if (event.target.className === 'delete') {
-//     const text = event.target.dataset.text
-//     axios.delete(`/items/${text}`)
-//       .then(() => event.target.parentNode.remove())
-//       .catch(err => console.error(err))
-//   }
-// })
+document.addEventListener('click', event => {
+  if (event.target.className === 'delete') {
+    const title = event.target.dataset.title
+    axios.delete(`/api/songs/${title}`)
+      .then(() => event.target.parentNode.remove())
+      .catch(err => console.error(err))
+  }
+})
 
 // document.addEventListener('click', event => {
 //   if (event.target.className === 'isDone') {
@@ -61,10 +62,11 @@ axios.get('/api/songs')
     songs.forEach(song => {
       let songElem = document.createElement('div')
       songElem.innerHTML = `
-        <p>${song.title}</p>
+        <p data-title="${song.title}">${song.title}</p>
         <p>${song.artist}</p>
         <p>${song.album}</p>
         <p>${song.text}</p>
+        <button class="delete">Delete</button>
         <hr>
       `
       document.getElementById('songList').append(songElem)
