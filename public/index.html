@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./app.js">
   <link rel="stylesheet" href="./style.css">
   <title>Songs Blog</title>
 </head>
+
 <body>
-<h1>Songs Blog</h1>
-<hr>
+  <h1>Songs Blog</h1>
+  <hr>
 </body>
-<section>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      Title <input type="Title">
+
+  <form>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          Title <input type="Title">
+        </div>
+        <div class="col">
+          Artist <input type="Artist">
+        </div>
+        <div class="col">
+          Album <input type="Album">
+        </div>
+      </div>
     </div>
-    <div class="col">
-      Artist <input type="Artist">
-    </div>
-    <div class="col">
-      Album <input type="Album">
-    </div>
-  </div>
-</div>
-</section>
+  </form>
+  <button id="add-song">Add Song</button>
+
+  <!-- Get Request -->
+  <div id="song-list">Where the songs will go</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./app.js"></script>
 </body>
+
 </html>
