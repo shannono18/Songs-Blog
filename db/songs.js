@@ -6,3 +6,5 @@ let songs = [
     text: 'Text section'
   }
 ]
+
+module.exports = songs
