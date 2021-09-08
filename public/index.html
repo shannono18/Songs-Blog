@@ -5,14 +5,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./styleGrp/reset.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./styleGrp/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Georama:wght@200&display=swap" rel="stylesheet">
+
   <title>Songs Blog</title>
 </head>
 
+
 <body>
+
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <span class="navbar-text">
+      Navbar text with an inline element
+    </span>
+  </div>
+</nav>
+
   <h1>Songs Blog</h1>
   <hr>
-</body>
 
   <form>
     <div class="container">
@@ -28,14 +46,16 @@
         </div>
       </div>
     </div>
-  </form>
-  <button id="add-song">Add Song</button>
+    <div class="col">
+      Artist <input type="Artist">
+    </div>
+    <div class="col">
+      Album <input type="Album">
+    </div>
+  </div>
+</div>
+</section>
 
-  <!-- Get Request -->
-  <div id="song-list">Where the songs will go</div>
-
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="./app.js"></script>
 </body>
 
 </html>
