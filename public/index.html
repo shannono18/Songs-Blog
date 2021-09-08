@@ -36,26 +36,27 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          Title <input type="Title">
+          Title <input type="text" id="titleInput">
         </div>
         <div class="col">
-          Artist <input type="Artist">
+          Artist <input type="text" id="artistInput">
         </div>
         <div class="col">
-          Album <input type="Album">
+          Album <input type="text" id="albumInput">
+        </div>
+        <div class="col">
+          Comments <input type="text" id="commentsInput">
         </div>
       </div>
     </div>
-    <div class="col">
-      Artist <input type="Artist">
-    </div>
-    <div class="col">
-      Album <input type="Album">
-    </div>
-  </div>
-</div>
-</section>
+      <button id="addSong">Add Favorite Song</button>
+  </form> 
 
+  <div ><h5>Favorite Song List</h5></div>
+  <div id="songList"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./app.js"></script>
 </body>
 
 </html>
