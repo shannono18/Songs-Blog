@@ -3,7 +3,8 @@ let songs = [
     title: 'Title',
     artist: 'Artist',
     album: 'Album',
-    text: 'Text section',
-    comments: []
+    text: 'Text section'
   }
 ]
+
+module.exports = songs
