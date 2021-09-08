@@ -49,10 +49,10 @@
 //   }
 // })
 
-axios.get('/songs')
+axios.get('/api/songs')
   .then(({ data: songs }) => {
     songs.forEach(song => {
-      const songElem = document.createElement('div')
+      let songElem = document.createElement('div')
       songElem.innerHTML = `
         <p>${song.title}</p>
         <p>${song.artist}</p>
@@ -60,7 +60,7 @@ axios.get('/songs')
         <p>${song.text}</p>
         <hr>
       `
-      document.getElementById('songs').append(songElem)
+      document.getElementById('songList').append(songElem)
     })
   })
   .catch(err => console.error(err))
