@@ -5,3 +5,11 @@ body {
   /* added padding to prevent navbar overlap. (100 based on browser inpector of size) */
   padding-top: 90px;
 }
+
+header h1 {
+  font-family: 'Georama', sans-serif;
+  font-size: 30px;
+  color: #bbc085;
+  padding: 65px 0 65px 25px;
+  
+}
