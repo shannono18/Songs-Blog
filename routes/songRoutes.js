@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const { text } = require('body-parser')
-const { songs } = require('../db')
+const songs = require('../db/songs')
+
+
 
 router.get('/songs', (req, res) => {
   res.json(songs)
