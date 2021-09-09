@@ -57,7 +57,7 @@ document.addEventListener('click', event => {
 
     axios.put(`/api/songs/${title}/${updText}`)
       .then(() => {
-        console.log('In test')
+        event.target.parentNode.parentNode.children[3].textContent = updText
       })
       .catch(err => console.error(err))
   }
