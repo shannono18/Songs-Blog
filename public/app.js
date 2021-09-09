@@ -1,37 +1,45 @@
 // const { axios } = window
 
-// document.getElementById('addSong').addEventListener('click', event => {
-//   event.preventDefault()
+document.getElementById('addSong').addEventListener('click', event => {
+  event.preventDefault()
 
-//   const item = {
-//     text: document.getElementById('text').value,
-//     isDone: false
-//   }
+  const song = {
+    title: document.getElementById('titleInput').value,
+    artist: document.getElementById('artistInput').value,
+    album: document.getElementById('albumInput').value,
+    text: document.getElementById('commentsInput').value
+  }
 
-//   axios.post('/items', item)
-//     .then(() => {
-//       const itemElem = document.createElement('div')
-//       itemElem.innerHTML = `
-//         <p>${item.text}</p>
-//         <button class="isDone" data-text="${item.text}">${item.isDone ? 'Done' : 'Not Done'}</button>
-//         <button class="delete" data-text="${item.text}">X</button>
-//         <hr>
-//       `
-//       document.getElementById('items').append(itemElem)
+  axios.post('/api/songs', song)
+    .then(() => {
+      console.log(song)
+      let songElem = document.createElement('div')
+      songElem.innerHTML = `
+        <p data-title="${song.title}">${song.title}</p>
+        <p>${song.artist}</p>
+        <p>${song.album}</p>
+        <p>${song.text}</p>
+        <button class="delete">Delete</button>
+      <hr>
+      `
+      document.getElementById('songList').append(songElem)
 
-//       document.getElementById('text').value = ''
-//     })
-//     .catch(err => console.error(err))
-// })
+      document.getElementById('titleInput').value = ''
+      document.getElementById('artistInput').value = ''
+      document.getElementById('albumInput').value = ''
+      document.getElementById('commentsInput').value = ''
+    })
+    .catch(err => console.error(err))
+})
 
-// document.addEventListener('click', event => {
-//   if (event.target.className === 'delete') {
-//     const text = event.target.dataset.text
-//     axios.delete(`/items/${text}`)
-//       .then(() => event.target.parentNode.remove())
-//       .catch(err => console.error(err))
-//   }
-// })
+document.addEventListener('click', event => {
+  if (event.target.className === 'delete') {
+    const title = event.target.dataset.title
+    axios.delete(`/api/songs/${title}`)
+      .then(() => event.target.parentNode.remove())
+      .catch(err => console.error(err))
+  }
+})
 
 // document.addEventListener('click', event => {
 //   if (event.target.className === 'isDone') {
@@ -54,10 +62,11 @@ axios.get('/api/songs')
     songs.forEach(song => {
       let songElem = document.createElement('div')
       songElem.innerHTML = `
-        <p>${song.title}</p>
+        <p data-title="${song.title}">${song.title}</p>
         <p>${song.artist}</p>
         <p>${song.album}</p>
         <p>${song.text}</p>
+        <button class="delete">Delete</button>
         <hr>
       `
       document.getElementById('songList').append(songElem)
