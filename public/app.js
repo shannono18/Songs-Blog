@@ -39,7 +39,7 @@ document.getElementById('addSong').addEventListener('click', event => {
 
 document.addEventListener('click', event => {
   if (event.target.className === 'delete') {
-    const title = event.target.dataset.title
+    const title = event.target.parentNode.children[0].dataset.title
     axios.delete(`/api/songs/${title}`)
       .then(() => event.target.parentNode.remove())
       .catch(err => console.error(err))

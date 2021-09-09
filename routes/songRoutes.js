@@ -25,9 +25,10 @@ router.put('/songs/:title:text', (req, res) => {
 })
 
 router.delete('/songs/:title', (req, res) => {
-  console.log('In delete router')
   let title = req.params.title
+  console.log(songs)
   songs = songs.filter(song => song.title !== title)
+  console.log(songs)
   res.sendStatus(200)
 })
 
