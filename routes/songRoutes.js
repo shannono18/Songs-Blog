@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { text } = require('body-parser')
-const songs = require('../db/songs')
+let songs = require('../db/songs')
 
 
 
@@ -25,7 +25,8 @@ router.put('/songs/:title:text', (req, res) => {
 })
 
 router.delete('/songs/:title', (req, res) => {
-  const title = req.params.title
+  console.log('In delete router')
+  let title = req.params.title
   songs = songs.filter(song => song.title !== title)
   res.sendStatus(200)
 })
