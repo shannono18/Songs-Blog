@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/shannono18/Songs-Blog#readme",
   "dependencies": {
+    "bulma": "^0.9.3",
+    "bulma-start": "^0.0.4",
     "express": "^4.17.1"
   }
 }
