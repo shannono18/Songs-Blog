@@ -13,14 +13,15 @@ router.post('/songs', (req, res) => {
   res.sendStatus(200)
 })
 
-router.put('/songs/:title:text', (req, res) => {
+router.put('/songs/:title', (req, res) => {
   const title = req.params.title
-  const newText = req.params.text
-  songs.forEach(song => {
-    if (song.title === title) {
-      song.text = nextText
-    }
-  })
+  // const newText = req.params.text
+  console.log(title)
+  // songs.forEach(song => {
+  //   if (song.title === title) {
+  //     song.text = nextText
+  //   }
+  // })
   res.sendStatus(200)
 })
 

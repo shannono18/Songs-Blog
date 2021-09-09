@@ -22,7 +22,7 @@ document.getElementById('addSong').addEventListener('click', event => {
         <form>
           <p class="update-prompt">Update Comments</p>
           <input type="text">
-          <button class="button is-info is-rounded" id="update-comments">Update</button>
+          <button class="button is-info is-rounded update-comments">Update</button>
         </form>
         <button class="delete">Delete</button>
       <hr>
@@ -46,21 +46,22 @@ document.addEventListener('click', event => {
   }
 })
 
-// document.addEventListener('click', event => {
-//   if (event.target.className === 'isDone') {
-//     const text = event.target.dataset.text
+document.addEventListener('click', event => {
+  event.preventDefault()
 
-//     axios.put(`/items/${text}`)
-//       .then(() => {
-//         if (event.target.textContent === 'Done') {
-//           event.target.textContent = 'Not Done'
-//         } else {
-//           event.target.textContent = 'Done'
-//         }
-//       })
-//       .catch(err => console.error(err))
-//   }
-// })
+  if (event.target.className === 'button is-info is-rounded update-comments') {
+    const title = event.target.parentNode.parentNode.children[0].dataset.title
+    const updText = event.target.parentNode.children[1].value
+    console.log(title)
+    console.log(updText)
+
+    axios.put(`/api/songs/${title}&${updText}`)
+      .then(() => {
+        console.log('In test')
+      })
+      .catch(err => console.error(err))
+  }
+})
 
 axios.get('/api/songs')
   .then(({ data: songs }) => {
@@ -74,7 +75,7 @@ axios.get('/api/songs')
         <form>
           <p class="update-prompt">Update Comments</p>
           <input type="text">
-          <button class="button is-info is-rounded" id="update-comments">Update</button>
+          <button class="button is-info is-rounded update-comments">Update</button>
         </form>
         <button class="delete">Delete</button>
         <hr>
