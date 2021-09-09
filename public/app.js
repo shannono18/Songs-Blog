@@ -19,6 +19,11 @@ document.getElementById('addSong').addEventListener('click', event => {
         <p>${song.artist}</p>
         <p>${song.album}</p>
         <p>${song.text}</p>
+        <form>
+          <p class="update-prompt">Update Comments</p>
+          <input type="text">
+          <button class="button is-info is-rounded" id="update-comments">Update</button>
+        </form>
         <button class="delete">Delete</button>
       <hr>
       `
@@ -66,6 +71,11 @@ axios.get('/api/songs')
         <p>${song.artist}</p>
         <p>${song.album}</p>
         <p>${song.text}</p>
+        <form>
+          <p class="update-prompt">Update Comments</p>
+          <input type="text">
+          <button class="button is-info is-rounded" id="update-comments">Update</button>
+        </form>
         <button class="delete">Delete</button>
         <hr>
       `
