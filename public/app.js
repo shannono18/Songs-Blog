@@ -55,7 +55,7 @@ document.addEventListener('click', event => {
     console.log(title)
     console.log(updText)
 
-    axios.put(`/api/songs/${title}&${updText}`)
+    axios.put(`/api/songs/${title}/${updText}`)
       .then(() => {
         console.log('In test')
       })
