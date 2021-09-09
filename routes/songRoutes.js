@@ -13,21 +13,23 @@ router.post('/songs', (req, res) => {
   res.sendStatus(200)
 })
 
-router.put('/songs/:title:text', (req, res) => {
+router.put('/songs/:title/:updText', (req, res) => {
   const title = req.params.title
-  const newText = req.params.text
+  const updText = req.params.updText
+
   songs.forEach(song => {
     if (song.title === title) {
-      song.text = nextText
+      song.text = updText
     }
   })
   res.sendStatus(200)
 })
 
 router.delete('/songs/:title', (req, res) => {
-  console.log('In delete router')
   let title = req.params.title
+  console.log(songs)
   songs = songs.filter(song => song.title !== title)
+  console.log(songs)
   res.sendStatus(200)
 })
 

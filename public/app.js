@@ -19,6 +19,11 @@ document.getElementById('addSong').addEventListener('click', event => {
         <p>${song.artist}</p>
         <p>${song.album}</p>
         <p>${song.text}</p>
+        <form>
+          <p class="update-prompt">Update Comments</p>
+          <input type="text">
+          <button class="button is-info is-rounded update-comments">Update</button>
+        </form>
         <button class="delete">Delete</button>
       <hr>
       `
@@ -34,28 +39,29 @@ document.getElementById('addSong').addEventListener('click', event => {
 
 document.addEventListener('click', event => {
   if (event.target.className === 'delete') {
-    const title = event.target.dataset.title
+    const title = event.target.parentNode.children[0].dataset.title
     axios.delete(`/api/songs/${title}`)
       .then(() => event.target.parentNode.remove())
       .catch(err => console.error(err))
   }
 })
 
-// document.addEventListener('click', event => {
-//   if (event.target.className === 'isDone') {
-//     const text = event.target.dataset.text
+document.addEventListener('click', event => {
+  event.preventDefault()
 
-//     axios.put(`/items/${text}`)
-//       .then(() => {
-//         if (event.target.textContent === 'Done') {
-//           event.target.textContent = 'Not Done'
-//         } else {
-//           event.target.textContent = 'Done'
-//         }
-//       })
-//       .catch(err => console.error(err))
-//   }
-// })
+  if (event.target.className === 'button is-info is-rounded update-comments') {
+    const title = event.target.parentNode.parentNode.children[0].dataset.title
+    const updText = event.target.parentNode.children[1].value
+    console.log(title)
+    console.log(updText)
+
+    axios.put(`/api/songs/${title}/${updText}`)
+      .then(() => {
+        event.target.parentNode.parentNode.children[3].textContent = updText
+      })
+      .catch(err => console.error(err))
+  }
+})
 
 axios.get('/api/songs')
   .then(({ data: songs }) => {
@@ -66,6 +72,11 @@ axios.get('/api/songs')
         <p>${song.artist}</p>
         <p>${song.album}</p>
         <p>${song.text}</p>
+        <form>
+          <p class="update-prompt">Update Comments</p>
+          <input type="text">
+          <button class="button is-info is-rounded update-comments">Update</button>
+        </form>
         <button class="delete">Delete</button>
         <hr>
       `

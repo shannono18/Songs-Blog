@@ -34,6 +34,10 @@ $primary-invert: $pink-invert;
     -webkit-transform: rotate(359deg);
             transform: rotate(359deg); } }
 
+.update-prompt {
+  margin-top: 20px;
+}
+
 .delete, .modal-close, .is-unselectable, .button, .file, .breadcrumb, .pagination-previous,
 .pagination-next,
 .pagination-link,
